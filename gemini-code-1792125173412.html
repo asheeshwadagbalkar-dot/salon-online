@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salon OS | Smart Salon Management Dashboard — Book Your FREE Demo</title>
+  <meta name="description" content="Appointments, POS Billing, Staff Management, Customer CRM, Inventory, Reports aur WhatsApp Automation ko ek hi smart software se manage karein. Book a FREE live demo of Salon OS." />
+  
+  <!-- Open Graph / Meta Ads Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Salon OS — Salon Ka Hisab-Kitab, Booking Aur Customers Ek Dashboard Par!" />
+  <meta property="og:description" content="Smart salon management software for Indian beauty salons, hair salons, unisex salons and salon chains. Watch the walkthrough video or book your FREE demo." />
+  <meta property="og:url" content="https://beautysalonsaas-truffle-d7dd21.netlify.app" />
+  <meta property="og:image" content="https://beautysalonsaas-truffle-d7dd21.netlify.app/og-preview.jpg" />
+
+  <!-- Dynamic SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23080C18'/><path d='M30 35 C30 25, 70 25, 70 40 C70 52, 30 48, 30 62 C30 75, 70 75, 70 65' stroke='%23EC4899' stroke-width='10' fill='none' stroke-linecap='round'/><circle cx='72' cy='28' r='6' fill='%2306B6D4'/></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#050811',
+              900: '#080C18',
+              800: '#0F1629',
+              700: '#19233D',
+            },
+            magenta: {
+              400: '#F472B6',
+              500: '#EC4899',
+              600: '#DB2777',
+            },
+            cyan: {
+              400: '#22D3EE',
+              500: '#06B6D4',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          boxShadow: {
+            'glow-magenta': '0 10px 35px -5px rgba(236, 72, 153, 0.45)',
+            'glow-cyan': '0 10px 30px -5px rgba(6, 182, 212, 0.25)',
+            'card-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.55)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #080C18;
+      color: #F8FAFC;
+      overflow-x: hidden;
+    }
+    .glass-card {
+      background: rgba(15, 22, 41, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+    .glass-card-light {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.07);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F472B6 55%, #22D3EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn-magenta {
+      background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-magenta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -5px rgba(236, 72, 153, 0.55);
+    }
+    .hero-mesh {
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(236, 72, 153, 0.18) 0px, transparent 50%),
+        radial-gradient(at 85% 25%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 80%, rgba(236, 72, 153, 0.08) 0px, transparent 50%);
+    }
+    video::cue {
+      background: rgba(8, 12, 24, 0.88);
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+    }
+  </style>
+
+  <!-- Schema.org SoftwareApplication JSON-LD (No fabricated ratings or pricing) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Salon OS",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web browser",
+    "description": "Smart salon management dashboard to organize appointments, POS billing, customer CRM, staff roster, inventory and daily salon operations.",
+    "url": "https://beautysalonsaas-truffle-d7dd21.netlify.app",
+    "creator": {
+      "@type": "Organization",
+      "name": "Ashish Digital Solutions"
+    }
+  }
+  </script>
+</head>
+
+<body class="antialiased selection:bg-magenta-500 selection:text-white pb-20 md:pb-0">
+
+  <!-- =====================================================================
+       CENTRAL CONFIGURATION & META PIXEL / GA4 EVENT DISPATCHER
+  ====================================================================== -->
+  <script>
+    window.SALON_OS_CONFIG = {
+      brandName: "Salon OS",
+      agencyName: "Ashish Digital Solutions",
+      liveDemoUrl: "https://beautysalonsaas-truffle-d7dd21.netlify.app",
+      
+      // Path to your uploaded walkthrough MP4 file (Place salon-os-demo.mp4 in the same folder or set full URL)
+      walkthroughVideoUrl: "salon-os-demo.mp4",
+      
+      // Configurable WhatsApp number (e.g., "919876543210"). Left blank so we never invent a fake number.
+      whatsappNumber: "",
+
+      // Configurable CRM / Webhook or Supabase credentials
+      webhookEndpoint: "",
+      supabaseUrl: "",
+      supabaseAnonKey: "",
+
+      // Meta Pixel & GA4 IDs
+      metaPixelId: "",
+      ga4MeasurementId: "",
+      landingPageVariant: "meta_ads_hinglish_v2_with_uploaded_video"
+    };
+
+    function trackSalonEvent(eventName, params = {}) {
+      const payload = {
+        ...params,
+        variant: window.SALON_OS_CONFIG.landingPageVariant,
+        timestamp: new Date().toISOString()
+      };
+      console.info(`[Salon OS Analytics] Event: ${eventName}`, payload);
+
+      if (typeof window.fbq === 'function' && window.SALON_OS_CONFIG.metaPixelId) {
+        window.fbq('track', eventName, payload);
+      }
+      if (typeof window.gtag === 'function' && window.SALON_OS_CONFIG.ga4MeasurementId) {
+        window.gtag('event', eventName, payload);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      trackSalonEvent('PageView');
+    });
+  </script>
+
+  <!-- Hidden File Input so you can preview your local MP4 immediately in browser without server setup -->
+  <input type="file" id="localVideoFilePicker" accept="video/mp4,video/webm,video/*" class="hidden" onchange="handleLocalVideoUpload(event)" />
+
+  <!-- =====================================================================
+       MINIMAL HIGH-CONVERTING HEADER
+  ====================================================================== -->
+  <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-magenta-500 to-cyan-500 p-0.5 shadow-glow-magenta">
+          <div class="w-full h-full bg-navy-900 rounded-[10px] flex items-center justify-center">
+            <span class="font-display font-extrabold text-lg tracking-tight bg-gradient-to-r from-magenta-400 to-cyan-400 bg-clip-text text-transparent">OS</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-bold text-white text-lg tracking-tight">SALON OS</span>
+            <span class="hidden sm:inline-block text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-magenta-500/15 text-magenta-400 border border-magenta-500/30">Smart SaaS</span>
+          </div>
+          <p class="text-[11px] text-slate-400 leading-none">by Ashish Digital Solutions</p>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <a href="#video-demo" onclick="trackSalonEvent('ViewContent', {section: 'header_watch_demo'})" class="hidden md:inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-300 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition">
+          <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+          Watch 2-Min Demo
+        </a>
+        <a href="#lead-form" class="btn-magenta text-white font-display font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-glow-magenta flex items-center gap-1.5">
+          <span>Book Your FREE Demo</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       HERO SECTION (Two-Column Desktop, Stacked Mobile — With Ad Video & Realistic Salon OS UI)
+  ====================================================================== -->
+  <section class="relative pt-8 pb-16 lg:pt-14 lg:pb-24 hero-mesh overflow-hidden border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        
+        <!-- Left Column: Persuasive Hinglish Ad Copy -->
+        <div class="lg:col-span-6 space-y-6 text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-magenta-500/15 border border-magenta-500/40 text-magenta-400 text-xs font-bold tracking-wider uppercase">
+            <span class="w-2 h-2 rounded-full bg-magenta-500 animate-ping"></span>
+            ATTENTION SALON OWNERS!
+          </div>
+
+          <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-[44px] text-white leading-[1.18] tracking-tight">
+            Salon Ka Hisab-Kitab, Booking Aur Customers — <span class="gradient-text">Ab Sab Ek Dashboard Par!</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+            Appointments, POS Billing, Staff Management, Customer CRM, Inventory, Reports aur WhatsApp Automation ko ek hi smart software se manage karein.
+          </p>
+
+          <!-- Target Indian Salon Segments -->
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="text-xs font-medium px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300">✨ Beauty Salons & Parlours</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300">✂️ Hair & Unisex Salons</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300">🌿 Spas & Bridal Studios</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300">🏢 Multi-Branch Chains</span>
+          </div>
+
+          <!-- Primary & Secondary CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+            <a href="#lead-form" class="btn-magenta text-white font-display font-bold text-base px-7 py-4 rounded-xl text-center flex items-center justify-center gap-2.5 shadow-glow-magenta">
+              <span>Book Your FREE Demo</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <button type="button" onclick="playHeroAdVideo()" class="bg-navy-800 hover:bg-navy-700 text-white border border-cyan-500/40 font-display font-semibold text-base px-6 py-4 rounded-xl text-center flex items-center justify-center gap-2.5 transition shadow-glow-cyan">
+              <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/></svg>
+              <span>Watch Dashboard Demo</span>
+            </button>
+          </div>
+
+          <!-- Trust Note -->
+          <div class="flex items-start gap-2.5 pt-1 text-xs text-slate-400">
+            <svg class="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span><strong class="text-slate-200">No obligation demo:</strong> Pehle live walkthrough mein real working modules dekhein aur samjhein ki ye aapke salon workflow mein kaise fit hota hai.</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Hero Ad Video Player + Salon Reception & Dashboard Composite -->
+        <div class="lg:col-span-6">
+          <div class="glass-card rounded-2xl p-2.5 sm:p-3.5 shadow-card-dark border border-white/15 relative">
+            
+            <!-- Top Browser Header Bar -->
+            <div class="flex items-center justify-between bg-navy-950/90 px-3 py-2 rounded-xl mb-2.5 border border-white/10">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span class="text-[11px] text-slate-400 font-mono ml-2 truncate">beautysalonsaas-truffle-d7dd21.netlify.app</span>
+              </div>
+
+              <div class="inline-flex rounded-lg bg-navy-800 p-0.5 border border-white/10">
+                <button id="heroTabVideoBtn" type="button" onclick="switchHeroMedia('video')" class="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-magenta-500 text-white transition flex items-center gap-1">
+                  <span>▶ Ad Video</span>
+                </button>
+                <button id="heroTabUiBtn" type="button" onclick="switchHeroMedia('ui')" class="text-[11px] font-semibold px-2.5 py-1 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1">
+                  <span>🖥 Live UI</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- HERO TAB 1: 16:9 AD VIDEO EMBED (No Autoplay with Sound, Custom Reception + Dashboard Poster) -->
+            <div id="heroMediaVideoPanel" class="relative rounded-xl overflow-hidden bg-navy-950 aspect-video border border-white/10">
+              
+              <!-- HTML5 Video Player -->
+              <video id="heroVideoElement" class="w-full h-full object-cover hidden" controls preload="metadata" playsinline>
+                <source class="salon-video-src" src="salon-os-demo.mp4" type="video/mp4" />
+                <track id="heroVideoCaptions" kind="captions" srclang="hi" label="Hinglish Voiceover" default />
+                Your browser does not support HTML5 video.
+              </video>
+
+              <!-- High-Converting Poster Thumbnail: Salon Owner at Reception + Realistic Salon OS Screen from Video -->
+              <div id="heroVideoPoster" class="inset-0 w-full h-full flex flex-col justify-between p-3.5 sm:p-5 bg-gradient-to-br from-navy-900 via-[#12182F] to-navy-950 relative">
+                
+                <!-- Top Badges -->
+                <div class="flex items-center justify-between gap-2 z-10">
+                  <span class="px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md text-[11px] font-semibold text-cyan-400 border border-cyan-500/30 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    Hinglish Walkthrough Video (01:30)
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-amber-500/15 text-[10px] font-semibold text-amber-300 border border-amber-500/30">
+                    Demo Data Shown
+                  </span>
+                </div>
+
+                <!-- Middle Visual: Receptionist / Salon Owner + Actual Dashboard UI Card from Video (00:10) -->
+                <div class="grid grid-cols-12 gap-2.5 sm:gap-3 items-center my-auto z-10 py-1">
+                  
+                  <!-- Left 5 Cols: Salon Owner at Reception Desk Illustration & Status -->
+                  <div class="col-span-5 bg-navy-900/95 border border-white/15 rounded-xl p-2.5 sm:p-3 text-left shadow-lg">
+                    <div class="flex items-center gap-2 mb-2">
+                      <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-magenta-500 to-amber-400 p-0.5 flex-shrink-0">
+                        <div class="w-full h-full rounded-full bg-navy-900 flex items-center justify-center text-[11px] font-bold text-white">👩‍💼</div>
+                      </div>
+                      <div class="min-w-0">
+                        <div class="text-[11px] font-bold text-white truncate">Salon Reception</div>
+                        <div class="text-[9px] text-emerald-400 truncate">● Lavanya Hair & Beauty</div>
+                      </div>
+                    </div>
+                    <div class="space-y-1 text-[10px]">
+                      <div class="bg-white/5 px-2 py-1 rounded flex justify-between text-slate-300">
+                        <span>Today's Rev:</span>
+                        <span class="font-bold text-white">₹5,240</span>
+                      </div>
+                      <div class="bg-white/5 px-2 py-1 rounded flex justify-between text-slate-300">
+                        <span>Active Stylists:</span>
+                        <span class="font-bold text-cyan-400">4 Active</span>
+                      </div>
+                      <div class="bg-white/5 px-2 py-1 rounded flex justify-between text-slate-300">
+                        <span>Retention:</span>
+                        <span class="font-bold text-emerald-400">82%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right 7 Cols: Exact White/Pink Dashboard Card from Video 00:10 -->
+                  <div class="col-span-7 bg-white text-slate-900 rounded-xl p-2.5 sm:p-3 text-left shadow-xl border border-slate-200 relative">
+                    <div class="bg-gradient-to-r from-magenta-600 to-rose-500 text-white rounded-lg p-2 mb-2">
+                      <div class="text-[8px] uppercase tracking-wider opacity-90">Beauty Salon & Spa | Operational Hub</div>
+                      <div class="text-[11px] font-extrabold leading-tight truncate">Welcome back to Beauty Salon & Spa</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-1.5 text-[10px]">
+                      <div class="bg-slate-50 p-1.5 rounded border border-slate-200">
+                        <div class="text-[8px] text-slate-500 uppercase">Appointments</div>
+                        <div class="font-extrabold text-slate-900">1 <span class="text-[8px] font-normal text-slate-500">Confirmed</span></div>
+                      </div>
+                      <div class="bg-slate-50 p-1.5 rounded border border-slate-200">
+                        <div class="text-[8px] text-slate-500 uppercase">Quick POS</div>
+                        <div class="font-extrabold text-magenta-600">Billing Active</div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Bottom Play Bar -->
+                <div class="z-20 flex items-center justify-between gap-2 bg-black/80 backdrop-blur-md px-3.5 py-2.5 rounded-xl border border-white/15">
+                  <div class="text-left min-w-0">
+                    <p id="heroLiveCaption" class="text-[11px] sm:text-xs text-white font-medium truncate">
+                      "Salon chalana sirf haircuts, styling aur beauty services tak limited nahi hai..."
+                    </p>
+                    <p class="text-[10px] text-slate-400">Click Play to watch with Hinglish voice-over</p>
+                  </div>
+                  <button type="button" onclick="playHeroAdVideo()" class="btn-magenta text-white text-xs font-bold px-3.5 py-2 rounded-lg flex items-center gap-1.5 flex-shrink-0 shadow-glow-magenta">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+                    <span>Play Video</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- HERO TAB 2: REALISTIC SALON OS DASHBOARD UI SCREENSHOT REPLICA (From Video 00:10-00:39) -->
+            <div id="heroMediaUiPanel" class="hidden rounded-xl overflow-hidden bg-white text-slate-900 border border-slate-200 p-3 sm:p-4 text-left">
+              <!-- Top Banner from Video 00:10 -->
+              <div class="bg-gradient-to-r from-magenta-600 via-pink-600 to-rose-500 text-white rounded-xl p-3 mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <span class="text-[9px] uppercase tracking-wider bg-black/20 px-2 py-0.5 rounded">Lavanya Hair and Beauty • Operational Hub</span>
+                  <h4 class="font-display font-extrabold text-sm sm:text-base mt-1">Welcome back to Beauty Salon & Spa</h4>
+                  <p class="text-[10px] text-pink-100">Here is your live performance summary for today (Sample Demo Data).</p>
+                </div>
+                <div class="flex gap-1.5 flex-shrink-0">
+                  <span class="text-[10px] bg-white text-magenta-600 font-bold px-2.5 py-1 rounded-lg shadow">+ New Appointment</span>
+                  <span class="text-[10px] bg-navy-900 text-white font-bold px-2.5 py-1 rounded-lg">Quick POS Billing</span>
+                </div>
+              </div>
+
+              <!-- 4 KPI Cards from Video 00:10 -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                  <div class="text-[9px] font-bold text-slate-400 uppercase">Today's Revenue</div>
+                  <div class="text-sm font-extrabold text-slate-900 mt-0.5">₹5,240</div>
+                  <div class="text-[9px] text-emerald-600 font-medium">Sample Metric</div>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                  <div class="text-[9px] font-bold text-slate-400 uppercase">Appointments</div>
+                  <div class="text-sm font-extrabold text-slate-900 mt-0.5">1</div>
+                  <div class="text-[9px] text-slate-500">1 Confirmed • 0 In-Service</div>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                  <div class="text-[9px] font-bold text-slate-400 uppercase">Active Stylists</div>
+                  <div class="text-sm font-extrabold text-slate-900 mt-0.5">4</div>
+                  <div class="text-[9px] text-slate-500">On Floor Roster</div>
+                </div>
+                <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                  <div class="text-[9px] font-bold text-slate-400 uppercase">Retention Rate</div>
+                  <div class="text-sm font-extrabold text-slate-900 mt-0.5">82%</div>
+                  <div class="text-[9px] text-slate-500">Avg Ticket: ₹1,020</div>
+                </div>
+              </div>
+
+              <!-- Today's Appointment Schedule Row from Video 00:21 -->
+              <div class="bg-slate-50 rounded-lg p-2.5 border border-slate-200 text-[11px]">
+                <div class="font-bold text-slate-800 mb-1.5 flex justify-between">
+                  <span>Today's Appointment Schedule (Sample Records)</span>
+                  <span class="text-magenta-600 font-semibold">Open Full Calendar →</span>
+                </div>
+                <div class="space-y-1 text-slate-600">
+                  <div class="flex items-center justify-between bg-white px-2.5 py-1.5 rounded border border-slate-100">
+                    <span><strong>10:00 - 10:45</strong> • Kavita Reddy (Signature Designer Haircut)</span>
+                    <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">₹800 • Confirmed</span>
+                  </div>
+                  <div class="flex items-center justify-between bg-white px-2.5 py-1.5 rounded border border-slate-100">
+                    <span><strong>12:15 - 13:15</strong> • Aditi Sharma (Gold Radiance Hydra-Facial)</span>
+                    <span class="text-[10px] font-bold text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded">₹2,199 • Scheduled</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Helper Bar below Hero Visual -->
+            <div class="mt-2.5 px-1 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
+              <button type="button" onclick="document.getElementById('localVideoFilePicker').click()" class="text-slate-300 hover:text-white underline flex items-center gap-1">
+                <span>📂 Load Local MP4 Video File</span>
+              </button>
+              <a href="https://beautysalonsaas-truffle-d7dd21.netlify.app" target="_blank" rel="noopener" onclick="trackSalonEvent('ViewContent', {target: 'netlify_live_demo'})" class="text-cyan-400 hover:text-cyan-300 font-semibold underline">
+                Open Interactive Demo Link ↗
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       PROBLEM SECTION: Kya Aapke Salon Mein Bhi Ye Problems Hain?
+  ====================================================================== -->
+  <section class="py-16 lg:py-24 bg-slate-50 text-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-magenta-600 bg-magenta-500/10 px-3 py-1 rounded-full">Salon Owners Ki Roz Ki Tension</span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-3 tracking-tight">
+          Kya Aapke Salon Mein Bhi Ye Problems Hain?
+        </h2>
+        <p class="text-slate-600 mt-3 text-base sm:text-lg">
+          Salon chalana sirf haircuts, styling aur beauty services tak limited nahi hai — jab operations manual hote hain toh ye 6 dikkatein roz aati hain:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        
+        <div class="glass-card-light rounded-2xl p-6 hover:border-magenta-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-4 font-bold">01</div>
+          <h3 class="font-display font-bold text-lg text-slate-900 mb-1.5">Appointment miss ho jate hain</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Diary ya phone calls par likhi bookings peak hours mein overlap ya miss ho jati hain.</p>
+        </div>
+
+        <div class="glass-card-light rounded-2xl p-6 hover:border-magenta-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-4 font-bold">02</div>
+          <h3 class="font-display font-bold text-lg text-slate-900 mb-1.5">Billing aur daily sales tracking confusing hai</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Paper bills aur manual calculation mein cash, UPI, card aur stylist-wise total match karna mushkil hota hai.</p>
+        </div>
+
+        <div class="glass-card-light rounded-2xl p-6 hover:border-magenta-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-4 font-bold">03</div>
+          <h3 class="font-display font-bold text-lg text-slate-900 mb-1.5">Customer history scattered hai</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Client ke pichle visits, loyalty points, wallet balance aur service preferences ek jagah nahi milte.</p>
+        </div>
+
+        <div class="glass-card-light rounded-2xl p-6 hover:border-magenta-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-4 font-bold">04</div>
+          <h3 class="font-display font-bold text-lg text-slate-900 mb-1.5">Staff schedules manage karna mushkil hai</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Kaunsa stylist ya beautician kis shift mein hai aur kis client par assigned hai, iska clear view nahi rehta.</p>
+        </div>
+
+        <div class="glass-card-light rounded-2xl p-6 hover:border-magenta-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-4 font-bold">05</div>
+          <h3 class="font-display font-bold text-lg text-slate-900 mb-1.5">Products ka stock time par pata nahi chalta</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Shampoo, hair color aur facial kits ka current stock aur reorder point bina manual checking ke pata nahi chalta.</p>
+        </div>
+
+        <div class="glass-card-light rounded-2xl p-6 hover:border-magenta-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mb-4 font-bold">06</div>
+          <h3 class="font-display font-bold text-lg text-slate-900 mb-1.5">Repeat customer follow-up manual hai</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">Clients ko reminders, greetings aur promotional coupons bhejne mein bahut waqt lagta hai.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-12 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 rounded-2xl p-6 sm:p-8 text-center text-white shadow-xl border border-white/10">
+        <p class="font-display font-extrabold text-xl sm:text-2xl tracking-tight">
+          ✨ Ab salon manage karein smarter tareeke se.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SOLUTION SECTION: Meet Salon OS — 10 Benefit-Led Feature Cards
+  ====================================================================== -->
+  <section id="solution" class="py-16 lg:py-24 bg-navy-900 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-3.5 py-1 rounded-full">All-In-One Salon Operating System</span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-white mt-3 tracking-tight">
+          Meet Salon OS — Your Salon, One Smart Dashboard.
+        </h2>
+        <p class="text-slate-300 mt-3 text-base sm:text-lg">
+          Appointments se lekar POS billing, CRM aur reports tak — sab kuch ek structured workflow mein.
+        </p>
+      </div>
+
+      <!-- 10 Feature Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
+        
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">01</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">Appointments & Calendar</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Bookings aur schedules ko organize karein — customer, service, stylist aur time slot ke saath.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">00:20 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">02</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">POS & Billing</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Live POS terminal se bills, GST/tax breakdown aur payment tender (Cash/UPI/Card) records manage karein.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">00:30 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">03</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">Customer CRM</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Client profiles, visit history, loyalty points aur wallet balances ko ek jagah organize karein.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">00:50 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">04</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">Staff & Roster</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Stylists aur beauticians ki daily shifts, weekly roster aur working hours ko easily manage karein.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">00:45 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">05</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">Inventory & Products</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Product stock tracking, current stock levels aur reorder points ko structured list mein dekhein.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">01:01 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 border-amber-500/30 hover:border-amber-400 transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-xs">06</div>
+              <span class="text-[9px] font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Setup Dependent</span>
+            </div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">WhatsApp Automation</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Supported reminders, greetings aur follow-up workflows (requires active configuration & integration setup).</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-amber-300 uppercase">00:54 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">07</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">Reports & Analytics</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Business performance visibility, revenue trends, average bill size aur service category breakdown.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">01:10 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">08</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">Services & Packages</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Salon service catalog, duration, pricing aur bridal/grooming combo packages organize karein.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">00:40 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">09</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">Coupons & Marketing</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Active discount coupons, festive offers aur promotional campaigns ko structured rakhein.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">01:05 in Video</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 hover:border-magenta-500/50 transition flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 rounded-xl bg-magenta-500/15 border border-magenta-500/30 flex items-center justify-center text-magenta-400 font-bold text-xs mb-3">10</div>
+            <h3 class="font-display font-bold text-base text-white mb-1.5">Customer Booking Page</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Online booking interface jahan se clients apne salon appointment slots request kar sakte hain.</p>
+          </div>
+          <span class="mt-4 inline-block text-[10px] font-semibold text-cyan-400 uppercase">Public Booking Link</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       VIDEO DEMO SECTION: Full 16:9 Walkthrough Player + Exact Video Screen Sync
+  ====================================================================== -->
+  <section id="video-demo" class="py-16 lg:py-24 bg-navy-950 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-magenta-400 bg-magenta-500/10 border border-magenta-500/30 px-3.5 py-1 rounded-full">Official Hinglish Walkthrough</span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-white mt-3 tracking-tight">
+          Sirf 2 Minute Mein Dekhiye Salon OS Kaise Kaam Karta Hai.
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">
+          Watch the complete walkthrough video or click any module timestamp on the right to inspect that screen and voice-over. (Visible dashboard metrics are sample demo data).
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-3 sm:p-6 shadow-card-dark border border-white/15">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          
+          <!-- Left 8 Cols: 16:9 Video Player + Interactive Screen Mirror -->
+          <div class="lg:col-span-8 flex flex-col justify-between bg-navy-900 rounded-xl border border-white/10 overflow-hidden">
+            
+            <!-- Top Bar -->
+            <div class="bg-navy-950 px-4 py-2.5 border-b border-white/10 flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span id="demoTimeBadge" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-magenta-500 text-white">00:00 - 00:10</span>
+                <span id="demoTitleBadge" class="text-xs sm:text-sm font-display font-bold text-white">1. Hook & Intro</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="document.getElementById('localVideoFilePicker').click()" class="text-[11px] bg-white/10 hover:bg-white/20 text-white px-2.5 py-1 rounded border border-white/15 transition">
+                  📂 Attach Uploaded MP4
+                </button>
+                <span class="text-[11px] text-amber-300 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Demo Data</span>
+              </div>
+            </div>
+
+            <!-- 16:9 Main Video Element (Revealed automatically when salon-os-demo.mp4 loads or user attaches local MP4) -->
+            <div id="mainVideoContainer" class="relative aspect-video bg-navy-950 flex flex-col justify-between overflow-hidden">
+              <video id="mainWalkthroughVideo" class="w-full h-full object-contain hidden" controls preload="metadata" playsinline>
+                <source class="salon-video-src" src="salon-os-demo.mp4" type="video/mp4" />
+                <track id="mainVideoCaptions" kind="captions" srclang="hi" label="Hinglish Captions" default />
+              </video>
+
+              <!-- Interactive Screen Mirror (Displays exact UI from uploaded video frames when video is paused/not yet linked) -->
+              <div id="interactiveFrameCanvas" class="w-full h-full p-4 sm:p-6 flex flex-col justify-center bg-gradient-to-b from-navy-900 to-navy-950 overflow-y-auto">
+                <!-- Populated dynamically by selectVideoChapter() -->
+              </div>
+            </div>
+
+            <!-- Hinglish Voice-Over Transcript Bar -->
+            <div class="bg-black/85 px-4 sm:px-5 py-3.5 border-t border-white/10">
+              <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+                <span>🎙️ Exact Hinglish Voice-Over From Video (CC)</span>
+                <button type="button" onclick="nextVideoChapter()" class="text-cyan-400 hover:underline font-semibold">Next Timestamp →</button>
+              </div>
+              <p id="demoTranscriptText" class="text-xs sm:text-sm text-white font-medium leading-relaxed">
+                "Salon chalana sirf haircuts, styling aur beauty services tak limited nahi hai. Appointments, billing, staff aur customers—sab manage karna bhi zaroori hai. Meet Salon OS, your smart salon management dashboard."
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Right 4 Cols: 9 Exact Chapters from Uploaded Video (00:00 to 01:29) -->
+          <div class="lg:col-span-4 flex flex-col justify-between space-y-1.5 max-h-[480px] overflow-y-auto pr-1">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 px-2 pb-1">Video Timestamps (00:00 - 01:29)</div>
+            
+            <button type="button" onclick="selectVideoChapter(0)" id="vChap0" class="w-full text-left px-3 py-2 rounded-xl border border-magenta-500 bg-magenta-500/15 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">01. Hook & Reception Intro</div>
+                <div class="text-[10px] text-slate-400">Salon Owner & Smart Dashboard</div>
+              </div>
+              <span class="text-[11px] font-mono text-magenta-300">00:00</span>
+            </button>
+
+            <button type="button" onclick="selectVideoChapter(1)" id="vChap1" class="w-full text-left px-3 py-2 rounded-xl border border-white/5 bg-navy-900/60 hover:bg-navy-800 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">02. Dashboard Overview</div>
+                <div class="text-[10px] text-slate-400">₹5,240 Rev, 4 Stylists, 82% Retention</div>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">00:10</span>
+            </button>
+
+            <button type="button" onclick="selectVideoChapter(2)" id="vChap2" class="w-full text-left px-3 py-2 rounded-xl border border-white/5 bg-navy-900/60 hover:bg-navy-800 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">03. Appointments & Calendar</div>
+                <div class="text-[10px] text-slate-400">+ Book Appointment Drawer</div>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">00:20</span>
+            </button>
+
+            <button type="button" onclick="selectVideoChapter(3)" id="vChap3" class="w-full text-left px-3 py-2 rounded-xl border border-white/5 bg-navy-900/60 hover:bg-navy-800 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">04. Live POS Terminal</div>
+                <div class="text-[10px] text-slate-400">Sample Bill & Payment Tender</div>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">00:30</span>
+            </button>
+
+            <button type="button" onclick="selectVideoChapter(4)" id="vChap4" class="w-full text-left px-3 py-2 rounded-xl border border-white/5 bg-navy-900/60 hover:bg-navy-800 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">05. Services, Staff & Roster</div>
+                <div class="text-[10px] text-slate-400">Menu Catalog & Weekly Shifts</div>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">00:40</span>
+            </button>
+
+            <button type="button" onclick="selectVideoChapter(5)" id="vChap5" class="w-full text-left px-3 py-2 rounded-xl border border-white/5 bg-navy-900/60 hover:bg-navy-800 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">06. Customer CRM & WhatsApp</div>
+                <div class="text-[10px] text-slate-400">Loyalty Points & Reminders</div>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">00:50</span>
+            </button>
+
+            <button type="button" onclick="selectVideoChapter(6)" id="vChap6" class="w-full text-left px-3 py-2 rounded-xl border border-white/5 bg-navy-900/60 hover:bg-navy-800 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">07. Inventory & Coupons</div>
+                <div class="text-[10px] text-slate-400">Stock Reorder & Active Offers</div>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">01:00</span>
+            </button>
+
+            <button type="button" onclick="selectVideoChapter(7)" id="vChap7" class="w-full text-left px-3 py-2 rounded-xl border border-white/5 bg-navy-900/60 hover:bg-navy-800 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">08. Reports & Salon Settings</div>
+                <div class="text-[10px] text-slate-400">Financial Analytics & Config</div>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">01:10</span>
+            </button>
+
+            <button type="button" onclick="selectVideoChapter(8)" id="vChap8" class="w-full text-left px-3 py-2 rounded-xl border border-white/5 bg-navy-900/60 hover:bg-navy-800 transition flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-white">09. Book Demo CTA</div>
+                <div class="text-[10px] text-slate-400">Message 'SALON DEMO'</div>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400">01:20</span>
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CTA Below Video -->
+      <div class="mt-8 text-center">
+        <a href="#lead-form" onclick="trackSalonEvent('ViewContent', {source: 'below_video_cta'})" class="btn-magenta inline-flex items-center gap-2.5 text-white font-display font-bold text-base sm:text-lg px-8 py-4 rounded-xl shadow-glow-magenta">
+          <span>Mujhe Live Demo Chahiye</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       BEFORE VS AFTER SECTION (Honest Operational Comparison)
+  ====================================================================== -->
+  <section class="py-16 lg:py-24 bg-slate-50 text-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-magenta-600 bg-magenta-500/10 px-3 py-1 rounded-full">Clear Operational Difference</span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-3 tracking-tight">
+          Before vs. After Salon OS
+        </h2>
+        <p class="text-slate-600 mt-2 text-base">
+          Bina kisi exaggerated claim ke — dekhiye daily salon management kaise organize hota hai:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        
+        <!-- BEFORE -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border-2 border-rose-200 shadow-sm">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-bold uppercase mb-5">
+            ❌ BEFORE (Manual Workflow)
+          </div>
+          <ul class="space-y-4 text-sm sm:text-base text-slate-700">
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✕</span>
+              <span><strong>Diary-based bookings:</strong> Paper register par slots dhoondhna aur manual coordination.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✕</span>
+              <span><strong>Scattered records:</strong> Customer details aur past services alag-alag jagah bikhre hue.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✕</span>
+              <span><strong>Manual billing:</strong> Paper slip bills aur din ke aakhir mein confusing sales calculation.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✕</span>
+              <span><strong>Unclear stock:</strong> Products aur consumables ka stock bina ginti ke pata na chalna.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✕</span>
+              <span><strong>Time-consuming follow-ups:</strong> Har client ko reminders manually bhejna.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- AFTER -->
+        <div class="bg-navy-900 text-white rounded-2xl p-6 sm:p-8 border-2 border-magenta-500 shadow-xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold uppercase mb-5">
+            ✅ AFTER (With Salon OS)
+          </div>
+          <ul class="space-y-4 text-sm sm:text-base text-slate-200">
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✓</span>
+              <span><strong class="text-white">Organized appointments:</strong> Calendar aur stylist filter ke saath clear booking schedule.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✓</span>
+              <span><strong class="text-white">Centralized customer records:</strong> Customer CRM mein client history, visits aur loyalty points.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✓</span>
+              <span><strong class="text-white">Streamlined billing:</strong> Quick POS terminal se service selection aur payment mode tracking.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✓</span>
+              <span><strong class="text-white">Staff overview:</strong> Staff & Roster mein daily shifts aur team availability ek nazar mein.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">✓</span>
+              <span><strong class="text-white">Stock visibility & reporting:</strong> Inventory reorder points aur financial analytics ek dashboard par.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       HOW IT WORKS SECTION (3 Simple Steps)
+  ====================================================================== -->
+  <section class="py-16 lg:py-20 bg-navy-900 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-3.5 py-1 rounded-full">How It Works</span>
+      <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-white mt-3 tracking-tight">
+        3 Simple Steps Mein Live Demo Dekhein
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 text-left">
+        
+        <div class="glass-card rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-magenta-500 text-white font-display font-extrabold text-lg flex items-center justify-center mb-4 shadow-glow-magenta">1</div>
+          <h3 class="font-display font-bold text-lg text-white mb-2">Step 1: Free demo request karein</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">Form mein apna naam, WhatsApp number, salon name aur city fill karke submit karein.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-cyan-500 text-navy-950 font-display font-extrabold text-lg flex items-center justify-center mb-4 shadow-glow-cyan">2</div>
+          <h3 class="font-display font-bold text-lg text-white mb-2">Step 2: Team se dashboard walkthrough dekhein</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">Hamari team aapko screen-share par Salon OS ke working modules ka live walkthrough dikhayegi.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6">
+          <div class="w-11 h-11 rounded-xl bg-white text-navy-950 font-display font-extrabold text-lg flex items-center justify-center mb-4">3</div>
+          <h3 class="font-display font-bold text-lg text-white mb-2">Step 3: Apne salon ke workflows aur setup options discuss karein</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">Apne salon ke services, staff roster aur required integrations ke hisaab se setup finalize karein.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-10">
+        <a href="#lead-form" class="btn-magenta inline-flex items-center gap-2 text-white font-display font-bold text-base px-8 py-4 rounded-xl shadow-glow-magenta">
+          <span>Schedule My Demo</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       LEAD CAPTURE FORM SECTION
+  ====================================================================== -->
+  <section id="lead-form" class="py-16 lg:py-24 bg-navy-950 relative overflow-hidden border-b border-white/10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-card-dark border border-white/15">
+        
+        <div class="text-center mb-8">
+          <span class="text-xs font-bold uppercase tracking-widest text-magenta-400 bg-magenta-500/15 border border-magenta-500/30 px-3 py-1 rounded-full">Book Your Free Walkthrough</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-3 tracking-tight">
+            Apne Salon Ko Smart Banane Ka Pehla Step Lijiye.
+          </h2>
+          <p class="text-sm sm:text-base text-slate-300 mt-2">
+            Neeche details bhariye — Ashish Digital Solutions team aapko WhatsApp/phone par free demo slot confirm karegi.
+          </p>
+        </div>
+
+        <form id="salonLeadForm" novalidate class="space-y-5">
+          
+          <!-- Honeypot field for bot protection -->
+          <div class="hidden" aria-hidden="true">
+            <input type="text" id="bot_honeypot" name="bot_honeypot" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="fullName" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Full Name <span class="text-magenta-400">*</span></label>
+              <input type="text" id="fullName" name="fullName" required placeholder="e.g. Kavita Reddy"
+                class="w-full px-4 py-3.5 rounded-xl bg-navy-900 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-magenta-500 transition" />
+              <p id="err-fullName" class="hidden text-xs text-rose-400 mt-1">Kripya apna pura naam enter karein.</p>
+            </div>
+
+            <div>
+              <label for="whatsappNumber" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">WhatsApp Mobile Number <span class="text-magenta-400">*</span></label>
+              <div class="flex">
+                <span class="inline-flex items-center px-3.5 rounded-l-xl bg-navy-800 border border-r-0 border-white/15 text-slate-300 text-sm font-semibold">+91</span>
+                <input type="tel" id="whatsappNumber" name="whatsappNumber" required maxlength="10" inputmode="numeric" placeholder="98XXXXXXXX (10 digits)"
+                  class="w-full px-4 py-3.5 rounded-r-xl bg-navy-900 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-magenta-500 transition" />
+              </div>
+              <p id="err-whatsappNumber" class="hidden text-xs text-rose-400 mt-1">Valid 10-digit Indian WhatsApp number enter karein (starts with 6-9).</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="salonName" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Salon Name <span class="text-magenta-400">*</span></label>
+              <input type="text" id="salonName" name="salonName" required placeholder="e.g. Lavanya Hair & Beauty Salon"
+                class="w-full px-4 py-3.5 rounded-xl bg-navy-900 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-magenta-500 transition" />
+              <p id="err-salonName" class="hidden text-xs text-rose-400 mt-1">Kripya apne salon ka naam enter karein.</p>
+            </div>
+
+            <div>
+              <label for="city" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">City <span class="text-magenta-400">*</span></label>
+              <input type="text" id="city" name="city" required placeholder="e.g. Indore, Bhopal, Mumbai, Pune"
+                class="w-full px-4 py-3.5 rounded-xl bg-navy-900 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-magenta-500 transition" />
+              <p id="err-city" class="hidden text-xs text-rose-400 mt-1">Kripya apni city enter karein.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div>
+              <label for="salonType" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Salon Type <span class="text-magenta-400">*</span></label>
+              <select id="salonType" name="salonType" required
+                class="w-full px-3.5 py-3.5 rounded-xl bg-navy-900 border border-white/15 text-white text-sm focus:outline-none focus:border-magenta-500 transition">
+                <option value="Beauty Parlour">Beauty Parlour</option>
+                <option value="Hair Salon">Hair Salon</option>
+                <option value="Unisex Salon">Unisex Salon</option>
+                <option value="Spa">Spa</option>
+                <option value="Salon Chain">Salon Chain</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="staffCount" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Number of Staff <span class="text-slate-500 font-normal">(Optional)</span></label>
+              <select id="staffCount" name="staffCount"
+                class="w-full px-3.5 py-3.5 rounded-xl bg-navy-900 border border-white/15 text-white text-sm focus:outline-none focus:border-magenta-500 transition">
+                <option value="">Select Staff Size</option>
+                <option value="1-3 Staff">1 - 3 Staff</option>
+                <option value="4-8 Staff">4 - 8 Staff</option>
+                <option value="9-15 Staff">9 - 15 Staff</option>
+                <option value="15+ Staff">15+ Staff</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="biggestChallenge" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Biggest Challenge</label>
+              <select id="biggestChallenge" name="biggestChallenge"
+                class="w-full px-3.5 py-3.5 rounded-xl bg-navy-900 border border-white/15 text-white text-sm focus:outline-none focus:border-magenta-500 transition">
+                <option value="Appointments">Appointments</option>
+                <option value="Billing">Billing</option>
+                <option value="Customers">Customers</option>
+                <option value="Staff">Staff</option>
+                <option value="Inventory">Inventory</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pt-1">
+            <label class="flex items-start gap-3 cursor-pointer select-none">
+              <input type="checkbox" id="consentCheck" name="consentCheck" required
+                class="mt-1 w-4 h-4 rounded border-white/25 bg-navy-900 text-magenta-500 focus:ring-magenta-500" />
+              <span class="text-xs text-slate-300 leading-relaxed">
+                I agree to be contacted via WhatsApp or phone call by <strong>Salon OS (Ashish Digital Solutions)</strong> regarding my free demo request. View our <button type="button" onclick="openPolicyModal('privacy')" class="text-cyan-400 underline hover:text-cyan-300">Privacy Policy</button>. <span class="text-magenta-400">*</span>
+              </span>
+            </label>
+            <p id="err-consentCheck" class="hidden text-xs text-rose-400 mt-1">Demo book karne ke liye consent checkbox select karein.</p>
+          </div>
+
+          <button type="submit" id="submitLeadBtn" class="w-full btn-magenta text-white font-display font-extrabold text-base sm:text-lg py-4 rounded-xl shadow-glow-magenta flex items-center justify-center gap-2">
+            <span>Book My FREE Demo</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </button>
+
+          <div id="formFeedbackBox" class="hidden rounded-2xl p-5 border text-sm"></div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       FAQ SECTION
+  ====================================================================== -->
+  <section class="py-16 lg:py-24 bg-navy-900 border-b border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-3.5 py-1 rounded-full">FAQs</span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-white mt-3 tracking-tight">
+          Aksar Puche Jaane Wale Sawaal
+        </h2>
+      </div>
+
+      <div class="space-y-3.5">
+        
+        <details class="glass-card rounded-2xl p-5 group open:border-magenta-500/40 transition">
+          <summary class="font-display font-bold text-base sm:text-lg text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>1. Kya Salon OS beauty parlour aur unisex salon ke liye hai?</span>
+            <span class="text-magenta-400 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+          </summary>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Haan, Salon OS Indian beauty parlours, hair salons, unisex salons, spas aur salon chains ke daily workflows ke hisaab se banaya gaya hai. Aap apni service categories (Hair, Skin & Facials, Nail Art, Bridal, Men's Grooming) apne salon ke mutabik set kar sakte hain.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 group open:border-magenta-500/40 transition">
+          <summary class="font-display font-bold text-base sm:text-lg text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>2. Kya appointment aur billing ek jagah manage kar sakte hain?</span>
+            <span class="text-magenta-400 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+          </summary>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Ji haan. Dashboard mein <strong>Appointments & Calendar</strong> aur <strong>Live POS Terminal (Billing)</strong> dono ek hi jagah available hain, jisse aap bookings aur daily sales billing aasani se manage kar sakte hain.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 group open:border-magenta-500/40 transition">
+          <summary class="font-display font-bold text-base sm:text-lg text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>3. Kya customer records maintain ho sakte hain?</span>
+            <span class="text-magenta-400 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+          </summary>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Haan, <strong>Customer CRM</strong> section mein aap client profiles, phone numbers, visit counts, loyalty points aur wallet balances ko organized rakh sakte hain.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 group open:border-magenta-500/40 transition">
+          <summary class="font-display font-bold text-base sm:text-lg text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>4. Kya staff aur inventory management available hai?</span>
+            <span class="text-magenta-400 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+          </summary>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Haan, <strong>Staff & Roster</strong> mein aap team details aur weekly shifts manage kar sakte hain, aur <strong>Inventory & Products</strong> mein current stock aur reorder points review kar sakte hain.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 group open:border-magenta-500/40 transition">
+          <summary class="font-display font-bold text-base sm:text-lg text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>5. Kya demo free hai?</span>
+            <span class="text-magenta-400 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+          </summary>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Haan, live dashboard walkthrough 100% free aur no-obligation hai.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 group open:border-magenta-500/40 transition">
+          <summary class="font-display font-bold text-base sm:text-lg text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>6. Setup aur pricing kaise pata chalegi?</span>
+            <span class="text-magenta-400 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+          </summary>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Demo walkthrough ke dauran hamari team aapke salon ke workflow, branches aur required modules ko samajh kar aapko exact setup aur pricing details batayegi.
+          </p>
+        </details>
+
+        <details class="glass-card rounded-2xl p-5 group open:border-magenta-500/40 transition">
+          <summary class="font-display font-bold text-base sm:text-lg text-white cursor-pointer list-none flex items-center justify-between gap-4">
+            <span>7. Kya WhatsApp features ke liye additional integration required hai?</span>
+            <span class="text-magenta-400 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+          </summary>
+          <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+            Haan. Dashboard mein WhatsApp Automation module diya gaya hai, lekin live customer reminders aur automated messages tabhi send hote hain jab aapke account mein WhatsApp integration/API configured aur enabled ho.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       FINAL CTA SECTION
+  ====================================================================== -->
+  <section class="py-16 lg:py-24 hero-mesh bg-navy-950 text-center border-b border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white leading-tight tracking-tight">
+        Salon Chalaiye Smartly, <span class="gradient-text">Manual Management Ko Kahiye Goodbye!</span>
+      </h2>
+      <p class="text-base sm:text-lg text-slate-300 mt-4 max-w-2xl mx-auto leading-relaxed">
+        Salon OS ka live dashboard dekhiye aur samajhiye ki ye aapke salon ke workflow mein kaise fit ho sakta hai.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#lead-form" class="w-full sm:w-auto btn-magenta text-white font-display font-extrabold text-base sm:text-lg px-9 py-4 rounded-xl shadow-glow-magenta">
+          Book Your FREE Demo Today
+        </a>
+        <button type="button" onclick="triggerWhatsAppDeepLink()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-display font-bold text-base px-7 py-4 rounded-xl transition flex items-center justify-center gap-2">
+          <span>💬 WhatsApp Par Free Demo Book Karein</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       FOOTER
+  ====================================================================== -->
+  <footer class="bg-navy-950 py-12 text-slate-400 text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-white/10">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="font-display font-extrabold text-white text-lg">SALON OS</span>
+            <span class="text-slate-600">|</span>
+            <span class="text-cyan-400 font-medium">Ashish Digital Solutions</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">
+            Smart Salon Management Dashboard — Organize appointments, billing, customers and daily operations.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-5 text-xs font-medium text-slate-300">
+          <a href="https://beautysalonsaas-truffle-d7dd21.netlify.app" target="_blank" rel="noopener" class="hover:text-magenta-400 transition">Live Demo URL ↗</a>
+          <button type="button" onclick="triggerWhatsAppDeepLink()" class="hover:text-emerald-400 transition">WhatsApp</button>
+          <a href="#lead-form" class="hover:text-white transition">Contact</a>
+          <button type="button" onclick="openPolicyModal('privacy')" class="hover:text-white transition">Privacy Policy</button>
+          <button type="button" onclick="openPolicyModal('terms')" class="hover:text-white transition">Terms</button>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <p>© <span id="currentYear">2026</span> Salon OS | Ashish Digital Solutions. All rights reserved.</p>
+        <p>Note: Dashboard figures shown on preview screens represent sample demo data. Features & integrations depend on your account configuration.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       STICKY MOBILE WHATSAPP & DEMO CTA BAR
+  ====================================================================== -->
+  <div class="fixed bottom-0 inset-x-0 z-50 md:hidden bg-navy-950/95 backdrop-blur-lg border-t border-white/15 p-2.5 flex items-center gap-2">
+    <button type="button" onclick="triggerWhatsAppDeepLink()" class="flex-1 bg-emerald-600 active:bg-emerald-700 text-white font-display font-bold text-xs py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 shadow-lg">
+      <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+      <span>WhatsApp Par Free Demo Book Karein</span>
+    </button>
+    <a href="#lead-form" class="btn-magenta text-white font-display font-bold text-xs py-3 px-3.5 rounded-xl flex-shrink-0">
+      Book Demo
+    </a>
+  </div>
+
+  <!-- =====================================================================
+       MODAL FOR PRIVACY / TERMS / WHATSAPP FALLBACK
+  ====================================================================== -->
+  <div id="infoModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card max-w-lg w-full rounded-2xl p-6 border border-white/20 text-left space-y-4">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <h3 id="modalHeading" class="font-display font-bold text-lg text-white">Information</h3>
+        <button type="button" onclick="closePolicyModal()" class="text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+      </div>
+      <div id="modalBody" class="text-xs sm:text-sm text-slate-300 space-y-3 leading-relaxed max-h-[65vh] overflow-y-auto"></div>
+      <div class="pt-2 text-right">
+        <button type="button" onclick="closePolicyModal()" class="bg-navy-800 hover:bg-navy-700 text-white text-xs font-bold px-4 py-2 rounded-lg border border-white/10">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       VIDEO CHAPTERS, WEBVTT SUBTITLES, FORM & WHATSAPP LOGIC
+  ====================================================================== -->
+  <script>
+    // Exact 9 Video Chapters & Real Screen States from the Uploaded 01:30 Video
+    const VIDEO_CHAPTERS = [
+      {
+        startSec: 0,
+        time: "00:00 - 00:10",
+        title: "01. Hook & Reception Intro",
+        vo: "Salon chalana sirf haircuts, styling aur beauty services tak limited nahi hai. Appointments, billing, staff aur customers—sab manage karna bhi zaroori hai. Meet Salon OS, your smart salon management dashboard.",
+        screenHtml: `
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center text-left">
+            <div class="sm:col-span-5 bg-navy-800/90 p-4 rounded-xl border border-white/10">
+              <div class="text-xs font-bold text-magenta-400 uppercase mb-1">Reception View (00:02)</div>
+              <div class="text-sm font-bold text-white mb-2">Salon Owner at Reception Counter</div>
+              <p class="text-xs text-slate-300">Managing daily bookings, billing & stylists on laptop with Salon OS.</p>
+            </div>
+            <div class="sm:col-span-7 bg-navy-800/90 p-4 rounded-xl border border-emerald-500/30">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-display font-extrabold text-white text-sm">🟢 Salon OS Dashboard</span>
+                <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">00:05 Frame</span>
+              </div>
+              <div class="grid grid-cols-2
